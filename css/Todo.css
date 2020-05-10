@@ -5,8 +5,6 @@ body{
     padding: 0;
     margin: 0;
     background-color: #eee;
-    /* font-family: 'Source Serif Pro', serif; */
-    /* font-family: 'Source Sans Pro', sans-serif; */
 }
  /*************** Container ****************/
 .container{
@@ -18,7 +16,8 @@ body{
 /*************** Header ****************/
 
 .header{
-    background: url("../img/bg.jpg");
+    background: url("../img/bg2.jpg");
+    background-size: 100% 200%;
     width: 380px;
     height: 200px;
     border-radius: 20px 20px 0 0 ;
@@ -41,7 +40,7 @@ body{
     color: #e41b17;
     font-size: 35px;
 }
-.date{
+#date{
 
     flex-grow: 6;
     margin-top: 38%;
