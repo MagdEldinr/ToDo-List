@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>ToDO List</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='css/Todo.css'>
+    <link rel='stylesheet' href='css/font-awesome.css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web">
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="clear">
+                <i class="fa fa-refresh"></i>
+            </div>
+            <div class="date">Date</div>
+        </div>
+        <div class="content">
+            <ul id="list">
+                <li class="item">
+                    <i class="fa fa-circle-thin circle fa-lg"></i>
+                    <p class="text">Complete TodoList</p>
+                    <i class="fa fa-trash delete fa-lg"></i>
+                </li>
+            </ul>
+        </div>
+        <div class="add-item">
+            <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+            <input type="text" id="input" placeholder="  Add Task">
+        </div>
+    </div>
+    <script src='js/Todo.js'></script>
+</body>
+</html>
