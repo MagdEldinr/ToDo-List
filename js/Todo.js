@@ -1,4 +1,4 @@
-const refresh = document.querySelector(".clear");
+const reset = document.querySelector(".clear");
 const date = document.getElementById("date");
 const list = document.getElementById("list");
 const input = document.getElementById("input");
@@ -87,7 +87,7 @@ input.addEventListener("keyup", function(e){
         let toDo = input.value;
         //Check that input is not empty
         if(toDo){
-            addToDo(toDo);
+            addToDo(toDo, idCounter, false, false);
             listArray.push({
                 task: toDo,
                 id: idCounter,
@@ -100,6 +100,12 @@ input.addEventListener("keyup", function(e){
         input.value = "";
     }
 
+})
+
+//Clearing
+reset.addEventListener("click", function(){
+    localStorage.clear();
+    location.reload();
 })
 
 // Get actions from user
