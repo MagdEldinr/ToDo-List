@@ -19,28 +19,14 @@ const LINE_THROUGH = "lineThrough";
 
 // Adding todo
 function addToDo(toDo, id, user, done, trash){
-
     if(trash){
         return;
     }
-    id = id;
-    const completed = done ? CHECK : UNCHECK;
-    const line = done ? LINE_THROUGH : "";
-
-    let newItem = `
-    <li class="item">
-        <i class="fa ${completed} circle fa-lg" job="complete" id="${id}"></i>
-        <p class="text ${line}">${toDo}</p>
-        <p class="text" id="item-user">(${user})</p>
-        <i class="fa fa-trash delete fa-lg" job="delete" id="${id}"></i>
-    </li>`;
-    list.insertAdjacentHTML("beforeend", newItem);
     if(!checkIn(usersArray, user)){
         usersArray.push(user);
         let newUser = `<option value="${user}">${user}</option>`;
         userSelectList.insertAdjacentHTML("beforeend", newUser);
     }
-    console.log(usersArray);
 }
 
 // Toggle toDo
@@ -67,7 +53,34 @@ function loadData(arr){
     })
 }
 
-
+function render(user){
+    list.innerHTML = "";
+    for(i of listArray){
+        let usersItem = false;
+        for( u in i){
+            if(user === i[u] || user == "all"){
+                usersItem = true;
+            }
+        }
+        if(usersItem){
+            if(i["trash"] === true){
+                continue;
+            }
+            let completed = i["done"] ? CHECK : UNCHECK;
+            let line = i["done"] ? LINE_THROUGH : "";
+            let id = i["id"];
+            let newItem = `
+                <li class="item">
+                    <i class="fa ${completed} circle fa-lg" job="complete" id="${id}"></i>
+                    <p class="text ${line}">${i["task"]}</p>
+                    <p class="text" id="item-user">(${i["user"]})</p>
+                    <i class="fa fa-trash delete fa-lg" job="delete" id="${id}"></i>
+                </li>`;
+                list.insertAdjacentHTML("beforeend", newItem);
+        }
+    }
+        
+}
 
 //Retrive data
 
@@ -85,6 +98,8 @@ else{
     idCounter = 0;
 }
 
+
+// Check if element is in array on not
 function checkIn(array, element){
     let found = false;
     for(let i of array){
@@ -136,6 +151,7 @@ addBtn.addEventListener("click", function(e){
             idCounter++;
             input.value = "";
             user.value = "";
+            render(userSelectList.value);
         }
 })
 
@@ -158,8 +174,17 @@ user.addEventListener("keyup", function(e){
             idCounter++;
             input.value = "";
             user.value = "";
+            render(userSelectList.value);
         }
-    }  
+        
+    }
+    
+});
+
+
+// Render on select user
+userSelectList.addEventListener("change", function(e){
+    render(e.target.value);
 })
 
 //Clearing
@@ -182,3 +207,5 @@ list.addEventListener("click", function(e){
         localStorage.setItem("ToDo-List", JSON.stringify(listArray));
     }
 })
+
+render("all")
