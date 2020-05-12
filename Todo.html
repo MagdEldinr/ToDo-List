@@ -9,7 +9,7 @@
     <link rel='stylesheet' href='css/font-awesome.css'>
 
 </head>
-<body>
+<body id="body">
     <div class="container">
         <div class="header">
             <div class="clear">
@@ -19,16 +19,20 @@
         </div>
         <div class="content">
             <ul id="list">
-                <!-- <li class="item">
-                    <i class="fa fa-circle-thin circle fa-lg" job="complete"></i>
-                    <p class="text">Complete TodoList</p>
-                    <i class="fa fa-trash delete fa-lg" job="delete"></i>
-                </li> -->
+                <li class="item">
+                    <!-- <i class="fa fa-circle-thin circle fa-lg" job="complete"></i> -->
+                    <p class="text">Task</p>
+                    <select class="text" id="user-list">
+                        <option value="all">All Users</option>
+                    </select>
+                    <!-- <i class="fa fa-trash delete fa-lg" job="delete"></i> -->
+                </li>
             </ul>
         </div>
         <div class="add-item">
-            <i class="fa fa-plus-circle fa-2x" job="add"></i>
+            <i class="fa fa-plus-circle fa-3x" job="addTask" id="addBtn"></i>
             <input type="text" id="input" placeholder="  Add Task">
+            <input type="text" id="user" placeholder="  User">
         </div>
     </div>
     <script src='js/Todo.js'></script>

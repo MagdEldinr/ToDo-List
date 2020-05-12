@@ -16,7 +16,6 @@ body{
 /*************** Header ****************/
 
 .header{
-    background: url("../img/bg2.jpg");
     background-size: 100% 200%;
     width: 380px;
     height: 200px;
@@ -104,6 +103,9 @@ body{
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
 }
+#user-list, #item-user{
+    margin-left: 45%;
+}
 
 
 .lineThrough{
@@ -128,7 +130,7 @@ body{
 
 .add-item{
     padding-top: 7px;
-    height: 40px;
+    height: 80px;
     border-top: 1px solid #2e26266c;
     background-color: white;
     overflow: auto;
@@ -140,13 +142,26 @@ body{
 
 .add-item i{
     position: absolute;
-    margin-left: 3%;
-    /* margin-top: 1%; */
+    margin-left: 1%;
+    margin-top: 2%;
 }
 
-.add-item input{
+#input{
     position: absolute;
     margin-left: 13%;
+    border: none;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    width: 80%;
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+#user{
+    position: absolute;
+    margin-left: 13%;
+    margin-top: 9%;
     border: none;
     color: black;
     font-weight: bold;
